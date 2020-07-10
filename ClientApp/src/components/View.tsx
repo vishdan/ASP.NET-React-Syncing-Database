@@ -1,8 +1,8 @@
 import React from "react";
 import { Table } from "reactstrap";
-import {Movie} from "../models/movie.model"
+import { Movie } from "../models/movie.model";
 
-const View = React.memo(function View(props: any) {
+const View = React.memo((props: any) => {
   const datas = props.location.state.data;
   const dataList = datas.map((data: Movie) => (
     <tr key={data.id}>
@@ -25,9 +25,7 @@ const View = React.memo(function View(props: any) {
             <th>Price</th>
           </tr>
         </thead>
-        <tbody>
-            {dataList}
-        </tbody>
+        <tbody>{dataList}</tbody>
       </Table>
     </>
   );

@@ -1,5 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { Container, Row, Col } from "reactstrap";
+
 import Scanner from './Scanner';
 import Platform from './Platform';
 

@@ -44,18 +44,5 @@ namespace Assignment.Controllers
             _platform.SaveChanges();
             return _platform.Movies;
         }
-
-        [HttpPost]
-        [Route("upload")]
-        public async Task<IActionResult> Post(File model)
-        {
-           var file = model;
-           string path = Path.Combine(WebHostEnvironment.ContentRootPath, "ClientApp", "files");
-           using (var fs = new FileStream(Path.Combine(path, "file.txt"), FileMode.Create))
-           {
-                await file.CopyToAsync(fs);
-           }
-           return Ok();
-        }
     }
 }

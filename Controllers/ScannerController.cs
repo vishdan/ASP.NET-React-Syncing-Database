@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
@@ -31,10 +32,10 @@ namespace Assignment.Controllers
 
         [Route("add")]
         [HttpPost]
-        public ActionResult addData([FromBody] Movies movies)   // Add data to Database1 (Scanner)
+        public async Task<ActionResult> addData([FromBody] Movies movies)   // Add data to Database1 (Scanner)
         {   
             _scanner.Add(movies);
-            _scanner.SaveChanges();
+            await _scanner.SaveChangesAsync();
             return Ok();
         }
     }
